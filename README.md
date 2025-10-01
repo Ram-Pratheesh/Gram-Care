@@ -127,10 +127,3 @@ Use the generated https:// URL for API_BASE_URL in Flutter and React while testi
 
 GramCare aims to make healthcare more transparent and accessible. By combining blockchain immutability with mobile and web apps, the system protects patients against prescription fraud and connects underserved populations to care — including support through Panchayat offices and health workers for those without internet access.
 
-## Contributing
-
-Contributions and improvements are welcome. Please open issues for bugs or feature requests. For code changes, create a pull request with a clear description of the change and testing steps.
-
-## License
-
-MIT License
