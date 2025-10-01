@@ -113,7 +113,7 @@ npm start
 - Encrypt sensitive data at rest and in transit (TLS/HTTPS).
 - Follow local regulations and privacy best practices for medical data.
 
-Community Impact
+## Community Impact
 GramCare aims to make healthcare more transparent and accessible. By combining blockchain immutability
 with mobile and web apps, the system protects patients against prescription fraud and connects underserved 
 populations to care — including support through Panchayat offices and health workers for those without internet access.
