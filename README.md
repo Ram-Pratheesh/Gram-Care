@@ -102,11 +102,9 @@ flutter run
 ```bash
 cd pharmacy-dashboard
 npm install
-# Set REACT_APP_API_URL in .env to your backend (or ngrok https URL)
+# Set REACT_APP_API_URL in .env to your backend 
 npm start
 ```
-
-Use the generated https:// URL for API_BASE_URL in Flutter and React while testing on real devices.
 
 ## Security & Privacy
 
