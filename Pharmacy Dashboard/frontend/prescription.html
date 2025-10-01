@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GramCare Prescription Management</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <style>
+    /* General styles */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background: #f6f8f7;
+  color: #112117;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+.header {
+  background: rgba(246, 248, 247, 0.95);
+  border-bottom: 1px solid #e3e8e5;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  font-size: 24px;
+  color: #1dc962;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7f73;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #1dc962;
+}
+
+.nav .active {
+  color: #1dc962;
+  font-weight: bold;
+}
+
+/* Profile */
+.profile .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: url("https://via.placeholder.com/40") center/cover no-repeat;
+}
+
+/* Main */
+.main {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.main-header h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Button */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1dc962;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #17b054;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #e3e8e5;
+  margin-bottom: 16px;
+}
+
+.tab {
+  padding: 12px 4px;
+  font-size: 14px;
+  color: #6b7f73;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+  color: #1dc962;
+  font-weight: 600;
+  border-color: #1dc962;
+}
+
+.badge {
+  background: #e6f9ef;
+  color: #1dc962;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+/* Card + Table */
+.card {
+  background: white;
+  border: 1px solid #e3e8e5;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f6f8f7;
+}
+
+th, td {
+  padding: 12px 16px;
+  font-size: 14px;
+  text-align: left;
+}
+
+tbody tr:hover {
+  background: #f6f8f7;
+}
+
+/* Status */
+.status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status.new {
+  background: #e6f9ef;
+  color: #1dc962;
+}
+
+/* Action Button */
+.action-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #6b7f73;
+}
+
+.action-btn:hover {
+  color: #1dc962;
+}
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-container">
+        <div class="logo-area">
+          <div class="logo-icon">⚕</div>
+          <h1 class="logo-text">GramCare</h1>
+        </div>
+        <nav class="nav">
+          <a href="#">Dashboard</a>
+          <a href="#">Patients</a>
+          <a class="active" href="#">Prescriptions</a>
+          <a href="#">Inventory</a>
+          <a href="#">Reports</a>
+        </nav>
+        <div class="profile">
+          <div class="avatar"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="main-header">
+        <h2>Prescriptions</h2>
+        <button class="btn-primary">
+          <span class="material-symbols-outlined">add</span>
+          New Prescription
+        </button>
+      </div>
+
+      <div class="tabs">
+        <a class="tab active" href="#">New <span class="badge">5</span></a>
+        <a class="tab" href="#">Pending</a>
+        <a class="tab" href="#">Completed</a>
+      </div>
+
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Patient Name</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Liam Harper</td>
+              <td>2024-03-15</td>
+              <td><span class="status new">New</span></td>
+              <td><button class="action-btn">⋮</button></td>
+            </tr>
+            <tr>
+              <td>Olivia Bennett</td>
+              <td>2024-03-14</td>
+              <td><span class="status new">New</span></td>
+              <td><button class="action-btn">⋮</button></td>
+            </tr>
+            <tr>
+              <td>Noah Carter</td>
+              <td>2024-03-13</td>
+              <td><span class="status new">New</span></td>
+              <td><button class="action-btn">⋮</button></td>
+            </tr>
+            <tr>
+              <td>Emma Hayes</td>
+              <td>2024-03-12</td>
+              <td><span class="status new">New</span></td>
+              <td><button class="action-btn">⋮</button></td>
+            </tr>
+            <tr>
+              <td>Ethan Foster</td>
+              <td>2024-03-11</td>
+              <td><span class="status new">New</span></td>
+              <td><button class="action-btn">⋮</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

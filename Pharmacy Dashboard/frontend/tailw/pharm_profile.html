@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1dc962",
+              "background-light": "#f6f8f7",
+              "background-dark": "#112117",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      .form-select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%231dc962' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+        -webkit-print-color-adjust: exact;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex min-h-screen w-full flex-col">
+<header class="flex shrink-0 items-center justify-between border-b border-primary/20 dark:border-primary/30 px-6 sm:px-10 py-4">
+<div class="flex items-center gap-3">
+<svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+</svg>
+<h2 class="text-xl font-bold text-black dark:text-white">GramCare</h2>
+</div>
+<nav class="hidden items-center gap-8 md:flex">
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white" href="#">Dashboard</a>
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white" href="#">Patients</a>
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white" href="#">Orders</a>
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white" href="#">Inventory</a>
+<a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white" href="#">Reports</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="md:hidden">
+<span class="material-symbols-outlined text-black dark:text-white">menu</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbJuTHzkMRq3mqKC_X_Tps6fm3YBWoQ3c6NVp9nYJk2zNmTpM1kLJAFMl3PRPd3F3kIFW4YA5N5lXqU6clxRKZJDROr_gG3Mn-T07YAi4Ki4qNidtRSNI7UQan4kzIl11iVdWvgksoB5SMQrZWzgsnH1C3ZrDGE4f0Mqpg73ZoXKDQ3FQ8hu-9w0QCmlaUoYRvZGcvdIRjFYnhECDN87dJ1Z1ShZLm-4RTULOYkihso9mu5Gt7p5o9CbczXIM2N-K98WSXSXztbii-");'></div>
+</div>
+</header>
+<main class="flex-1 px-4 py-8 sm:px-6 lg:px-8">
+<div class="mx-auto max-w-4xl">
+<h1 class="text-3xl font-bold text-black dark:text-white">Profile &amp; Settings</h1>
+<div class="mt-8 space-y-12">
+<section>
+<h2 class="text-2xl font-semibold text-black dark:text-white">Pharmacy Information</h2>
+<div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+<div class="sm:col-span-2">
+<label class="block text-sm font-medium text-black/80 dark:text-white/80" for="pharmacy-name">Pharmacy Name</label>
+<input class="mt-1 block w-full rounded-lg border-primary/30 bg-background-light dark:bg-background-dark text-black dark:text-white focus:border-primary focus:ring-primary" id="pharmacy-name" type="text"/>
+</div>
+<div class="sm:col-span-2">
+<label class="block text-sm font-medium text-black/80 dark:text-white/80" for="address">Address</label>
+<input class="mt-1 block w-full rounded-lg border-primary/30 bg-background-light dark:bg-background-dark text-black dark:text-white focus:border-primary focus:ring-primary" id="address" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80" for="contact-number">Contact Number</label>
+<input class="mt-1 block w-full rounded-lg border-primary/30 bg-background-light dark:bg-background-dark text-black dark:text-white focus:border-primary focus:ring-primary" id="contact-number" type="tel"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80" for="email">Email</label>
+<input class="mt-1 block w-full rounded-lg border-primary/30 bg-background-light dark:bg-background-dark text-black dark:text-white focus:border-primary focus:ring-primary" id="email" type="email"/>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-2xl font-semibold text-black dark:text-white">Operating Hours</h2>
+<div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2 lg:grid-cols-3">
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80" for="monday-hours">Monday</label>
+<select class="form-select mt-1 block w-full appearance-none rounded-lg border-primary/30 bg-background-light dark:bg-background-dark text-black dark:text-white focus:border-primary focus:ring-primary" id="monday-hours">
+<option>9:00 AM - 5:00 PM</option>
+<option>Closed</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80" for="tuesday-hours">Tuesday</label>
+<select class="form-select mt-1 block w-full appearance-none rounded-lg border-primary/30 bg-background-light dark:bg-background-dark text-black dark:text-white focus:border-primary focus:ring-primary" id="tuesday-hours">
+<option>9:00 AM - 5:00 PM</option>
+<option>Closed</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80" for="wednesday-hours">Wednesday</label>
+<select class="form-select mt-1 block w-full appearance-none rounded-lg border-primary/30 bg-background-light dark:bg-background-dark text-black dark:text-white focus:border-primary focus:ring-primary" id="wednesday-hours">
+<option>9:00 AM - 5:00 PM</option>
+<option>Closed</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80" for="thursday-hours">Thursday</label>
+<select class="form-select mt-1 block w-full appearance-none rounded-lg border-primary/30 bg-background-light dark:bg-background-dark text-black dark:text-white focus:border-primary focus:ring-primary" id="thursday-hours">
+<option>9:00 AM - 5:00 PM</option>
+<option>Closed</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80" for="friday-hours">Friday</label>
+<select class="form-select mt-1 block w-full appearance-none rounded-lg border-primary/30 bg-background-light dark:bg-background-dark text-black dark:text-white focus:border-primary focus:ring-primary" id="friday-hours">
+<option>9:00 AM - 5:00 PM</option>
+<option>Closed</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80" for="saturday-hours">Saturday</label>
+<select class="form-select mt-1 block w-full appearance-none rounded-lg border-primary/30 bg-background-light dark:bg-background-dark text-black dark:text-white focus:border-primary focus:ring-primary" id="saturday-hours">
+<option>10:00 AM - 2:00 PM</option>
+<option>Closed</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-black/80 dark:text-white/80" for="sunday-hours">Sunday</label>
+<select class="form-select mt-1 block w-full appearance-none rounded-lg border-primary/30 bg-background-light dark:bg-background-dark text-black dark:text-white focus:border-primary focus:ring-primary" id="sunday-hours">
+<option>Closed</option>
+<option>10:00 AM - 2:00 PM</option>
+</select>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-2xl font-semibold text-black dark:text-white">Holidays</h2>
+<div class="mt-6">
+<label class="block text-sm font-medium text-black/80 dark:text-white/80" for="holidays">Add Holidays</label>
+<input class="mt-1 block w-full sm:w-1/2 rounded-lg border-primary/30 bg-background-light dark:bg-background-dark text-black dark:text-white placeholder:text-black/40 dark:placeholder:text-white/40 focus:border-primary focus:ring-primary" id="holidays" placeholder="e.g., New Year's Day, Christmas" type="text"/>
+</div>
+</section>
+<section>
+<h2 class="text-2xl font-semibold text-black dark:text-white">Delivery Service Area</h2>
+<p class="mt-2 text-sm text-black/60 dark:text-white/60">Define the geographic area where you offer delivery services.</p>
+<div class="mt-4 aspect-video w-full rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqEGm6qXewTMu3Kk9m2sj5xqUEzy2wMTjY1km-1XVGAb5GOWQFC4FFcMyBf0VMHqeTz-SoEstntM-u_zhYSolaLLzUtspkmJRSNsUvqjlZaUlYlLGmh8cob4k0qpT2_DsLBd-CmMejRfgDVmqie0tfqVvvYdJWZlYqMNj56-Vo81C2v_95s0fScLYsC8ilvOQN1zrW1Mdneub3b18FR3X2vdiunHPvrCRYEZXB98ndBCoiUGEPsTcHlmU-Le49LYjHApA4KciykHPs");'></div>
+</section>
+<div class="flex justify-end pt-4">
+<button class="rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-primary/80">
+                Update Profile
+              </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GramCare Dashboard</title>
+<style>
+    body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f6f8f7;
+  color: #112117;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #1dc962;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-section h1 {
+  font-size: 1.5rem;
+  color: black;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-right .profile-pic {
+  width: 40px;
+  height: 40px;
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBsv3AduwkotxCM35knv_UaFBr4Y9-TEDT4Lao_RxGPKghpHI64JbIcRmJONxHhZYEzbjiFdLdPu9BqxI-wFvG3w8Z8RY2X4cX77yPorc3rJAftFyYknOg39LadEsGPVFv8-96hgbEQgMsXg-7_rh7eVnLoTv8uMOJNNUo-hAoZUCXcKmqGmqwO-5_S62JQjZ0zqRAFJZvAMc3nqwmxmpGVWCVyi7S8z9iy0C5oHffdiXGI5AkidRO9lk0SJBDKaNhBhvQQ90Ohdevx');
+  background-size: cover;
+  border-radius: 50%;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.overview .cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #d3f4e6;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 150px;
+  text-align: center;
+}
+
+.card .number {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.pharmacy-profile .profile-card {
+  background-color: #d3f4e6;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.profile-card p {
+  margin: 5px 0;
+  font-weight: 500;
+}
+.title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.grid-2 {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 2fr 1fr;
+  margin: 20px 0;
+}
+
+.card {
+  background: #c4fac7;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.big {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+.small {
+  font-size: 14px;
+  color: #666;
+}
+
+.ok {
+  color: green;
+}
+
+.warn {
+  color: red;
+}
+
+.notif {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notif-item {
+  display: flex;
+  background-color: #c4fac7;
+   padding: 16px;
+  border-radius: 8px;
+  gap: 12px;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  background: #e0f2e9;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #1dc962;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.profile-card {
+  text-align: center;
+}
+
+.banner {
+  height: 100px;
+  border-radius: 8px;
+  background: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCarc0pBuUc6tGVGkpp369h2EWci8W6WegWZZQzm9AqWeCGrfuydBlSy3tAj8WN0HgdcOSAnUqznvI2DDlXLI6JWdl32pAhQ53SNY7lRuuy9JYAFmbcwhK-252SHJ-lIgerZ-oDPbknKCOcdgkPotBR1mNdBXNSuKJtOmt81LUI2s3x9T0XUlZb_wl8FF08Md0wunffACZ5OCnnJ1Cj-oz5uWuBzvvDlGHIVdido80f7LQS7RshRaRfkn8xR5T0BnOTnbr5Qi7Y3-R_") center/cover no-repeat;
+  margin-bottom: 12px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.address {
+  font-size: 14px;
+  color: #1dc962;
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo-section">
+     
+      <h1>GramCare</h1>
+    </div>
+    <nav>
+      <a>Dashboard</a>
+      <a href="order_list.html">Orders</a>
+      <a href="pharm_inventory.html">Inventory</a>
+      <!-- <a href="#">Patients</a>
+      <a href="#">Reports</a> -->
+    </nav>
+    <div class="header-right">
+      <button>🔔</button>
+      <div class="profile-pic" id="profile-pic"></div>
+    </div>
+  </header>
+
+  <main>
+    <h2>Pharmacy Dashboard</h2>
+
+    <section class="overview">
+      <h3>Overview</h3>
+      <div class="cards">
+        <div class="card">
+          <p>Pending Orders</p>
+          <p class="number">12</p>
+        </div>
+        <div class="card">
+          <p>In Progress</p>
+          <p class="number">8</p>
+        </div>
+        <div class="card">
+          <p>Completed</p>
+          <p class="number">45</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="pharmacy-profile">
+      <h3>Pharmacy Profile</h3>
+      <div class="profile-card">
+        <p class="pharmacy-name" id="pharmacyName">Pharmacy Name</p>
+        <p class="pharmacy-address" id="pharmacyAddress">Address</p>
+        <p class="pharmacy-contact" id="pharmacyContact">Contact Number</p>
+      </div>
+    </section> -->
+     <div class="grid-2">
+        <section>
+          <h3 class="section-title">Inventory Alerts</h3>
+          <div class="grid">
+            <div class="card">
+              <p>Low Stock</p>
+              <p class="big">5</p>
+              <p class="warn">-10%</p>
+            </div>
+            <div class="card">
+              <p>Expiring Soon</p>
+              <p class="big">3</p>
+              <p class="warn">-5%</p>
+            </div>
+            <div class="card">
+              <p>Out of Stock</p>
+              <p class="big">2</p>
+              <p class="ok">+20%</p>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3 class="section-title">Notifications</h3>
+          <div class="notif">
+            <div class="notif-item">
+              <span class="material-symbols-outlined">receipt_long</span>
+              <div>
+                <p>New Prescription Received</p>
+                <p class="small">10 minutes ago</p>
+              </div>
+            </div>
+            <div class="notif-item">
+              <span class="material-symbols-outlined">chat</span>
+              <div>
+                <p>Patient Message: Refill Request</p>
+                <p class="small">30 minutes ago</p>
+              </div>
+            </div>
+            <div class="notif-item">
+              <span class="material-symbols-outlined">notifications_active</span>
+              <div>
+                <p>System Alert: Inventory Update</p>
+                <p class="small">1 hour ago</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+  </main>
+</div>
+
+<script>
+//      document.getElementById('profile-pic').addEventListener('click',function(){
+//         window.location.replace = "profile.html";
+//      });
+//   // Fetch data from localStorage (set it on signup) and display
+//   const pharmacyName = localStorage.getItem('pharmacyName');
+//   const pharmacyAddress = localStorage.getItem('address');
+//   const pharmacyContact = localStorage.getItem('contactNumber');
+ 
+
+//   if(pharmacyName) document.getElementById('pharmacyName').textContent = pharmacyName;
+//   if(pharmacyAddress) document.getElementById('pharmacyAddress').textContent = pharmacyAddress;
+//   if(pharmacyContact) document.getElementById('pharmacyContact').textContent = pharmacyContact;
+
+document.getElementById('profile-pic').addEventListener('click', function(){
+  window.location.href = "profile.html";  // ✅ fixed
+});
+
+const pharmacyName = localStorage.getItem('pharmacyName');
+const pharmacyAddress = localStorage.getItem('address');
+const pharmacyContact = localStorage.getItem('contactNumber');
+
+if(pharmacyName) document.getElementById('pharmacyName').textContent = pharmacyName;
+if(pharmacyAddress) document.getElementById('pharmacyAddress').textContent = pharmacyAddress;
+if(pharmacyContact) document.getElementById('pharmacyContact').textContent = pharmacyContact;
+
+</script>
+</body>
+</html>
+
+
+

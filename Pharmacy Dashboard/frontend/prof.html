@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile</title>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  padding: 20px;
+}
+
+.profile-card {
+  max-width: 500px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.profile-card h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.profile-card p {
+  margin: 8px 0;
+  color: #555;
+}
+
+</style>
+</head>
+<body>
+  <header>
+    <h1>Profile</h1>
+    <nav>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="logout.html" id="logoutBtn">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="profile-card">
+      <h2 id="profileName">Pharmacy Name</h2>
+      <p><strong>Username:</strong> <span id="profileUsername"></span></p>
+      <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+      <p><strong>Contact:</strong> <span id="profileContact"></span></p>
+      <p><strong>Address:</strong> <span id="profileAddress"></span></p>
+    </section>
+  </main>
+
+<script>
+  const user = JSON.parse(localStorage.getItem('user'));
+  if(user) {
+    document.getElementById('profileName').textContent = user.pharmacyName;
+    document.getElementById('profileUsername').textContent = user.username;
+    document.getElementById('profileEmail').textContent = user.email;
+    document.getElementById('profileContact').textContent = user.contactNumber;
+    document.getElementById('profileAddress').textContent = user.address;
+  } else {
+    window.location.href = "signup.html";
+  }
+
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    localStorage.removeItem('user');
+    window.location.href = 'signup.html';
+  });
+</script>
+</body>
+</html>

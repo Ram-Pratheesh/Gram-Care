@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GramCare Sign-In</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script src="script.js"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1dc962",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112117",
+                        "text-light": "#112117",
+                        "text-dark": "#f6f8f7",
+                        "subtle-light": "#dce5df",
+                        "subtle-dark": "#2a3c32",
+                        "placeholder-light": "#6b8775",
+                        "placeholder-dark": "#8a9f90",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .form-input {
+            @apply w-full bg-background-light dark:bg-background-dark border border-subtle-light dark:border-subtle-dark text-text-light dark:text-text-dark placeholder-placeholder-light dark:placeholder-placeholder-dark focus:ring-primary focus:border-primary rounded-lg p-4 h-14 text-base;
+        }
+        .btn-primary {
+            @apply w-full bg-primary text-white font-bold h-12 px-5 rounded-lg flex items-center justify-center text-base tracking-wide;
+        }
+        .btn-secondary {
+            @apply w-full bg-subtle-light dark:bg-subtle-dark text-text-light dark:text-text-dark font-bold h-10 px-4 rounded-lg flex items-center justify-center text-sm tracking-wide;
+        }
+        .card {
+            @apply bg-white dark:bg-background-dark rounded-xl shadow-lg p-6 sm:p-8 border border-subtle-light dark:border-subtle-dark;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex flex-col min-h-screen">
+<header class="flex items-center justify-between px-4 sm:px-10 py-3 border-b border-subtle-light dark:border-subtle-dark">
+<div class="flex items-center gap-3 text-text-light dark:text-text-dark">
+<div class="w-8 h-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold">GramCare</h1>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center p-4">
+<div class="w-full max-w-xl grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="card col-span-1 lg:col-span-2">
+<div class="text-center">
+<h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Sign in to your account</h2>
+<p class="mt-2 text-sm text-placeholder-light dark:text-placeholder-dark">Secure access for pharmacy staff</p>
+</div>
+</div>
+<div class="card">
+<h3 class="text-xl font-bold text-text-light dark:text-text-dark mb-4">Login Credentials</h3>
+<form class="space-y-6">
+<div>
+<label class="sr-only" for="username">Username / Pharmacy ID</label>
+<input class="form-input" id="username" placeholder="Username / Pharmacy ID" type="text"/>
+</div>
+<div>
+<label class="sr-only" for="password">Password</label>
+<input class="form-input" id="password" placeholder="Password" type="password"/>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-subtle-light dark:border-subtle-dark text-primary focus:ring-primary bg-background-light dark:bg-background-dark" id="mfa" name="mfa" type="checkbox"/>
+<label class="ml-2 block text-sm text-text-light dark:text-text-dark" for="mfa">Use OTP</label>
+</div>
+<div class="text-sm">
+<a class="font-medium text-primary hover:text-primary/80" href="#">Forgot Password?</a>
+</div>
+</div>
+<button class="btn-primary" type="submit" onclick="signin(event)">Sign In</button>
+</form>
+</div>
+<div class="card">
+<h3 class="text-xl font-bold text-text-light dark:text-text-dark mb-4">One-Time Password (OTP)</h3>
+<div class="space-y-4">
+<label class="sr-only" for="otp">Enter OTP</label>
+<input class="form-input" id="otp" name="otp" placeholder="Enter OTP" type="text"/>
+<button class="btn-secondary" type="button">Verify OTP</button>
+</div>
+</div>
+<div class="card">
+<h3 class="text-xl font-bold text-text-light dark:text-text-dark mb-4">Security Check</h3>
+<div class="space-y-4">
+<div class="bg-subtle-light dark:bg-subtle-dark p-4 rounded-lg text-center text-text-light dark:text-text-dark">[CAPTCHA Image Placeholder]</div>
+<label class="sr-only" for="captcha">Enter CAPTCHA</label>
+<input class="form-input" id="captcha" name="captcha" placeholder="Enter CAPTCHA" type="text"/>
+</div>
+</div>
+<div class="card col-span-1 lg:col-span-2">
+<fieldset>
+<legend class="sr-only">Select Language</legend>
+<div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+<label class="relative flex items-center justify-center cursor-pointer">
+<input class="peer sr-only" name="language" type="radio"/>
+<span class="px-4 py-2 rounded-full text-sm font-medium border border-subtle-light dark:border-subtle-dark text-text-light dark:text-text-dark peer-checked:bg-primary/20 peer-checked:text-primary peer-checked:border-primary">Punjabi</span>
+</label>
+<label class="relative flex items-center justify-center cursor-pointer">
+<input class="peer sr-only" name="language" type="radio"/>
+<span class="px-4 py-2 rounded-full text-sm font-medium border border-subtle-light dark:border-subtle-dark text-text-light dark:text-text-dark peer-checked:bg-primary/20 peer-checked:text-primary peer-checked:border-primary">Hindi</span>
+</label>
+<label class="relative flex items-center justify-center cursor-pointer">
+<input checked="" class="peer sr-only" name="language" type="radio"/>
+<span class="px-4 py-2 rounded-full text-sm font-medium border border-subtle-light dark:border-subtle-dark text-text-light dark:text-text-dark peer-checked:bg-primary/20 peer-checked:text-primary peer-checked:border-primary">English</span>
+</label>
+</div>
+</fieldset>
+</div>
+<div class="col-span-1 lg:col-span-2">
+<p class="text-center text-xs text-placeholder-light dark:text-placeholder-dark">
+<a class="underline hover:text-primary" href="#">Terms of Service</a> |
+                    <a class="underline hover:text-primary" href="#">Privacy Policy</a> |
+                    <a class="underline hover:text-primary" href="#">Support</a>
+</p>
+</div>
+</div>
+</main>
+</div>
+</body>
+<script>
+    
+
+</script>
+</html>

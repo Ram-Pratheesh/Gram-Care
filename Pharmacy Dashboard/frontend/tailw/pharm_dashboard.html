@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1dc962',
+              'background-light': '#f6f8f7',
+              'background-dark': '#112117',
+            },
+            fontFamily: {
+              display: ['Inter'],
+            },
+            borderRadius: { DEFAULT: '0.25rem', lg: '0.5rem', xl: '0.75rem', full: '9999px' },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>GramCare Dashboard</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#112117] dark:text-[#f6f8f7]">
+<div class="flex min-h-screen w-full flex-col">
+<header class="flex items-center justify-between border-b border-primary/20 dark:border-primary/30 px-4 sm:px-6 lg:px-8 py-3">
+<div class="flex items-center gap-3">
+<div class="text-primary size-8">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold">GramCare</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+<a class="text-primary" href="#">Dashboard</a>
+<a class="hover:text-primary transition-colors" href="#">Orders</a>
+<a class="hover:text-primary transition-colors" href="#">Inventory</a>
+<a class="hover:text-primary transition-colors" href="#">Patients</a>
+<a class="hover:text-primary transition-colors" href="#">Reports</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="rounded-full p-2 hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<span class="material-symbols-outlined"> notifications </span>
+</button>
+<div class="size-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsv3AduwkotxCM35knv_UaFBr4Y9-TEDT4Lao_RxGPKghpHI64JbIcRmJONxHhZYEzbjiFdLdPu9BqxI-wFvG3w8Z8RY2X4cX77yPorc3rJAftFyYknOg39LadEsGPVFv8-96hgbEQgMsXg-7_rh7eVnLoTv8uMOJNNUo-hAoZUCXcKmqGmqwO-5_S62JQjZ0zqRAFJZvAMc3nqwmxmpGVWCVyi7S8z9iy0C5oHffdiXGI5AkidRO9lk0SJBDKaNhBhvQQ90Ohdevx");'></div>
+</div>
+</header>
+<main class="flex-1 p-4 sm:p-6 lg:p-8">
+<div class="mx-auto max-w-7xl">
+<h2 class="text-3xl font-bold mb-6">Pharmacy Dashboard</h2>
+<div class="grid grid-cols-1 gap-6">
+<section>
+<h3 class="text-xl font-semibold mb-4">Overview</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-primary/10 dark:bg-primary/20 p-6 rounded-lg">
+<p class="font-medium">Pending Orders</p>
+<p class="text-3xl font-bold mt-2">12</p>
+</div>
+<div class="bg-primary/10 dark:bg-primary/20 p-6 rounded-lg">
+<p class="font-medium">In Progress</p>
+<p class="text-3xl font-bold mt-2">8</p>
+</div>
+<div class="bg-primary/10 dark:bg-primary/20 p-6 rounded-lg">
+<p class="font-medium">Completed</p>
+<p class="text-3xl font-bold mt-2">45</p>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<section class="lg:col-span-2">
+<h3 class="text-xl font-semibold mb-4">Inventory Alerts</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-primary/10 dark:bg-primary/20 p-6 rounded-lg">
+<p class="font-medium">Low Stock</p>
+<p class="text-3xl font-bold mt-2">5</p>
+<p class="text-sm text-red-500 font-medium mt-1">-10%</p>
+</div>
+<div class="bg-primary/10 dark:bg-primary/20 p-6 rounded-lg">
+<p class="font-medium">Expiring Soon</p>
+<p class="text-3xl font-bold mt-2">3</p>
+<p class="text-sm text-red-500 font-medium mt-1">-5%</p>
+</div>
+<div class="bg-primary/10 dark:bg-primary/20 p-6 rounded-lg">
+<p class="font-medium">Out of Stock</p>
+<p class="text-3xl font-bold mt-2">2</p>
+<p class="text-sm text-green-500 font-medium mt-1">+20%</p>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-xl font-semibold mb-4">Notifications</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="bg-primary/20 dark:bg-primary/30 p-3 rounded-full"><span class="material-symbols-outlined"> receipt_long </span></div>
+<div>
+<p class="font-medium">New Prescription Received</p>
+<p class="text-sm text-primary/80 dark:text-primary/70">10 minutes ago</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-primary/20 dark:bg-primary/30 p-3 rounded-full"><span class="material-symbols-outlined"> chat </span></div>
+<div>
+<p class="font-medium">Patient Message: Refill Request</p>
+<p class="text-sm text-primary/80 dark:text-primary/70">30 minutes ago</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-primary/20 dark:bg-primary/30 p-3 rounded-full"><span class="material-symbols-outlined"> notifications_active </span></div>
+<div>
+<p class="font-medium">System Alert: Inventory Update</p>
+<p class="text-sm text-primary/80 dark:text-primary/70">1 hour ago</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<section>
+<h3 class="text-xl font-semibold mb-4">Quick Actions</h3>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors flex-grow sm:flex-grow-0">Add Stock</button>
+<button class="bg-primary/20 dark:bg-primary/30 font-bold py-2 px-4 rounded-lg hover:bg-primary/30 dark:hover:bg-primary/40 transition-colors flex-grow sm:flex-grow-0">
+                  Process Orders
+                </button>
+<button class="bg-primary/20 dark:bg-primary/30 font-bold py-2 px-4 rounded-lg hover:bg-primary/30 dark:hover:bg-primary/40 transition-colors flex-grow sm:flex-grow-0">
+                  Check Medicine Prices
+                </button>
+<button class="bg-primary/20 dark:bg-primary/30 font-bold py-2 px-4 rounded-lg hover:bg-primary/30 dark:hover:bg-primary/40 transition-colors flex-grow sm:flex-grow-0">
+                  View Reports
+                </button>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<section class="lg:col-span-2">
+<h3 class="text-xl font-semibold mb-4">Sales &amp; Fulfillment</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-primary/10 dark:bg-primary/20 p-6 rounded-lg">
+<p class="font-medium">Sales Performance</p>
+<p class="text-3xl font-bold mt-2">$15,000</p>
+<div class="flex items-center gap-2 mt-1">
+<p class="text-sm text-primary/80 dark:text-primary/70">This Month</p>
+<p class="text-sm font-medium text-green-500">+12%</p>
+</div>
+<div class="mt-4 h-32 grid grid-cols-4 gap-2 items-end">
+<div class="bg-primary/50 rounded-t" style="height: 30%"></div>
+<div class="bg-primary/50 rounded-t" style="height: 50%"></div>
+<div class="bg-primary/50 rounded-t" style="height: 20%"></div>
+<div class="bg-primary/50 rounded-t" style="height: 70%"></div>
+</div>
+</div>
+<div class="bg-primary/10 dark:bg-primary/20 p-6 rounded-lg">
+<p class="font-medium">Order Fulfillment Rate</p>
+<p class="text-3xl font-bold mt-2">95%</p>
+<div class="flex items-center gap-2 mt-1">
+<p class="text-sm text-primary/80 dark:text-primary/70">This Month</p>
+<p class="text-sm font-medium text-green-500">+5%</p>
+</div>
+<div class="mt-4 h-32">
+<svg fill="none" height="100%" preserveAspectRatio="none" viewBox="0 0 472 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H0V109Z" fill="url(#paint0_linear_)"></path>
+<path class="text-primary" d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+<defs>
+<linearGradient gradientUnits="userSpaceOnUse" id="paint0_linear_" x1="236" x2="236" y1="1" y2="149">
+<stop stop-color="#1dc962" stop-opacity="0.3"></stop>
+<stop offset="1" stop-color="#1dc962" stop-opacity="0"></stop>
+</linearGradient>
+</defs>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-xl font-semibold mb-4">Pharmacy Profile</h3>
+<div class="bg-primary/10 dark:bg-primary/20 p-6 rounded-lg h-full">
+<div class="h-32 rounded-lg bg-cover bg-center mb-4" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCarc0pBuUc6tGVGkpp369h2EWci8W6WegWZZQzm9AqWeCGrfuydBlSy3tAj8WN0HgdcOSAnUqznvI2DDlXLI6JWdl32pAhQ53SNY7lRuuy9JYAFmbcwhK-252SHJ-lIgerZ-oDPbknKCOcdgkPotBR1mNdBXNSuKJtOmt81LUI2s3x9T0XUlZb_wl8FF08Md0wunffACZ5OCnnJ1Cj-oz5uWuBzvvDlGHIVdido80f7LQS7RshRaRfkn8xR5T0BnOTnbr5Qi7Y3-R_");'></div>
+<p class="font-bold text-lg">Rural Pharmacy</p>
+<p class="text-sm text-primary/80 dark:text-primary/70">123 Village Road, Rural Area</p>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

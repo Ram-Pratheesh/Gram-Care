@@ -1,0 +1,206 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pharmacy Profile</title>
+  <style>
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f6f8f7;
+  color: #222;
+}
+
+.container { max-width: 1000px; margin: auto; padding: 1rem; }
+
+.header {
+  background: white;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+}
+
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+.branding { display: flex; align-items: center; gap: 10px; }
+.logo { width: 32px; height: 32px; background: #1dc962; border-radius: 50%; }
+
+.nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #555;
+}
+.nav a:hover { color: #000; }
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  background: #ccc;
+  border-radius: 50%;
+}
+
+.main h1 { font-size: 24px; margin-bottom: 20px; }
+.section { margin-bottom: 30px; }
+
+label { display: block; margin-bottom: 15px; font-weight: bold; }
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.map-box { width: 100%; height: 200px; background: #ddd; border-radius: 8px; }
+
+.actions { text-align: right; }
+button {
+  background: #1dc962;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover { background: #17a14f; }
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container flex-between">
+      <div class="branding">
+        <div class="logo"></div>
+        <h2>GramCare</h2>
+      </div>
+      <nav class="nav">
+        <a href="#">Dashboard</a>
+        <a href="#">Patients</a>
+        <a href="#">Orders</a>
+        <a href="#">Inventory</a>
+        <a href="#">Reports</a>
+      </nav>
+      <div class="profile-pic"></div>
+    </div>
+  </header>
+
+  <main class="main container">
+    <h1>Profile & Settings</h1>
+
+    <section class="section">
+      <h2>Pharmacy Information</h2>
+      <label>Pharmacy Name
+        <input type="text" id="pharmacy-name"/>
+      </label>
+      <label>Address
+        <input type="text" id="address"/>
+      </label>
+      <label>Contact Number
+        <input type="tel" id="contact-number"/>
+      </label>
+      <label>Email
+        <input type="email" id="email"/>
+      </label>
+    </section>
+
+    <section class="section">
+      <h2>Operating Hours</h2>
+      <div class="grid">
+        <label>Monday
+          <select id="monday-hours">
+            <option>9:00 AM - 5:00 PM</option>
+            <option>Closed</option>
+          </select>
+        </label>
+        <label>Tuesday
+          <select id="tuesday-hours">
+            <option>9:00 AM - 5:00 PM</option>
+            <option>Closed</option>
+          </select>
+        </label>
+       
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Holidays</h2>
+      <input type="text" id="holidays" placeholder="e.g., New Year's Day, Christmas"/>
+    </section>
+
+    <section class="section">
+      <h2>Delivery Service Area</h2>
+      <div class="map-box"></div>
+    </section>
+
+    <div class="actions">
+      <button id="update-btn">Update Profile</button>
+    </div>
+  </main>
+
+  <script>
+    // Fetch profile after login
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    // Example: assume login already stored userId & userType in localStorage
+    const userId = localStorage.getItem("userId");
+    const userType = localStorage.getItem("userType");
+
+    if (!userId || userType !== "Pharmacy") return;
+
+    const res = await fetch(`http://localhost:4000/api/pharmacy/${userId}`);
+    const data = await res.json();
+
+    // Fill fields
+    document.getElementById("pharmacy-name").value = data.pharmacyName || "";
+    document.getElementById("address").value = data.address || "";
+    document.getElementById("contact-number").value = data.contactNumber || "";
+    document.getElementById("email").value = data.email || "";
+    document.getElementById("holidays").value = data.holidays || "";
+    // operating hours would need extra logic
+  } catch (err) {
+    console.error("Profile fetch error:", err);
+  }
+});
+
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pharmacy Profile</title>
+<link rel="stylesheet" href="profile.css">
+</head>
+<body>
+<div class="profile-container">
+  <h2>Pharmacy Profile</h2>
+  <div class="profile-card">
+    <p><strong>Pharmacy Name:</strong> <span id="pharmacyName">Loading...</span></p>
+    <p><strong>Address:</strong> <span id="pharmacyAddress">Loading...</span></p>
+    <p><strong>Contact Number:</strong> <span id="pharmacyContact">Loading...</span></p>
+    <p><strong>Email:</strong> <span id="email">Loading...</span></p>
+  </div>
+</div>
+
+<script>
+async function fetchProfile() {
+  const email = localStorage.getItem('email'); // set email on signup/login
+  if(!email) return;
+
+  const res = await fetch(`http://localhost:4000/api/profile?email=${email}`);
+  const data = await res.json();
+
+  document.getElementById('pharmacyName').textContent = data.pharmacyName;
+  document.getElementById('pharmacyAddress').textContent = data.address;
+  document.getElementById('pharmacyContact').textContent = data.contactNumber;
+  document.getElementById('email').textContent = data.email;
+}
+
+fetchProfile();
+</script>
+</body>
+</html>
+

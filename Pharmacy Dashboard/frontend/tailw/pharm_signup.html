@@ -1,0 +1,373 @@
+<!-- <!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#38e07b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#122017",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="w-full border-b border-primary/20 dark:border-primary/30">
+<div class="container mx-auto flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold text-black dark:text-white">GramCare</h2>
+</div>
+<nav class="hidden items-center gap-8 md:flex">
+<a class="text-sm font-medium text-black/60 hover:text-black dark:text-white/60 dark:hover:text-white" href="#">Home</a>
+<a class="text-sm font-medium text-black/60 hover:text-black dark:text-white/60 dark:hover:text-white" href="#">About</a>
+<a class="text-sm font-medium text-black/60 hover:text-black dark:text-white/60 dark:hover:text-white" href="#">Services</a>
+<a class="text-sm font-medium text-black/60 hover:text-black dark:text-white/60 dark:hover:text-white" href="#">Contact</a>
+</nav>
+<button class="flex h-10 items-center justify-center rounded-lg bg-primary px-5 text-sm font-bold text-black/80 transition-colors hover:bg-primary/80">Login</button>
+</div>
+</header>
+<main class="flex-1 py-12 @container/main">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="mx-auto max-w-3xl">
+<div class="space-y-6">
+<div class="space-y-2 text-center">
+<h1 class="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl">Register Your Pharmacy</h1>
+<p class="text-lg text-black/60 dark:text-white/60">Complete the steps below to get started.</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<p class="text-sm font-medium text-primary">Step 1: Business Details</p>
+<p class="text-sm font-medium text-black/40 dark:text-white/40">Step 2: Contact Info</p>
+<p class="text-sm font-medium text-black/40 dark:text-white/40">Step 3: Login Credentials</p>
+<p class="text-sm font-medium text-black/40 dark:text-white/40">Step 4: KYC</p>
+</div>
+<div class="h-2 w-full rounded-full bg-primary/20 dark:bg-primary/30">
+<div class="h-2 rounded-full bg-primary" style="width: 25%;"></div>
+</div>
+</div>
+<form id="pharmacySignupForm" class="space-y-6 bg-white dark:bg-black/20 p-8 rounded-xl shadow-lg">
+<div class="grid grid-cols-1 gap-6 @md:grid-cols-2">
+<div class="space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="pharmacy-name">Pharmacy/Store Name</label>
+<input class="form-input block w-full rounded-lg border-primary/30 bg-background-light px-4 py-3 text-black placeholder-black/40 focus:border-primary focus:ring-primary dark:border-primary/40 dark:bg-background-dark dark:text-white dark:placeholder-white/40 dark:focus:border-primary dark:focus:ring-primary" id="pharmacy-name" name="pharmacy-name" placeholder="e.g., GramCare Pharmacy" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="owner-name">Owner/Proprietor Name</label>
+<input class="form-input block w-full rounded-lg border-primary/30 bg-background-light px-4 py-3 text-black placeholder-black/40 focus:border-primary focus:ring-primary dark:border-primary/40 dark:bg-background-dark dark:text-white dark:placeholder-white/40 dark:focus:border-primary dark:focus:ring-primary" id="owner-name" name="owner-name" placeholder="e.g., John Doe" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="drug-license">Drug License Number</label>
+<input class="form-input block w-full rounded-lg border-primary/30 bg-background-light px-4 py-3 text-black placeholder-black/40 focus:border-primary focus:ring-primary dark:border-primary/40 dark:bg-background-dark dark:text-white dark:placeholder-white/40 dark:focus:border-primary dark:focus:ring-primary" id="drug-license" name="drug-license" placeholder="Issued by State Drug Controller" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="tax-id">GST Number or PAN</label>
+<input class="form-input block w-full rounded-lg border-primary/30 bg-background-light px-4 py-3 text-black placeholder-black/40 focus:border-primary focus:ring-primary dark:border-primary/40 dark:bg-background-dark dark:text-white dark:placeholder-white/40 dark:focus:border-primary dark:focus:ring-primary" id="tax-id" name="tax-id" placeholder="For taxation &amp; billing compliance" required="" type="text"/>
+</div>
+<div class="col-span-full space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="address">Pharmacy Address</label>
+<input class="form-input block w-full rounded-lg border-primary/30 bg-background-light px-4 py-3 text-black placeholder-black/40 focus:border-primary focus:ring-primary dark:border-primary/40 dark:bg-background-dark dark:text-white dark:placeholder-white/40 dark:focus:border-primary dark:focus:ring-primary" id="address" name="address" placeholder="Street Address, Village/Town" required="" type="text"/>
+</div>
+<div class="grid grid-cols-1 gap-6 @sm:grid-cols-3 col-span-full">
+<div class="space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="pincode">PIN Code</label>
+<input class="form-input block w-full rounded-lg border-primary/30 bg-background-light px-4 py-3 text-black placeholder-black/40 focus:border-primary focus:ring-primary dark:border-primary/40 dark:bg-background-dark dark:text-white dark:placeholder-white/40 dark:focus:border-primary dark:focus:ring-primary" id="pincode" name="pincode" placeholder="e.g., 110001" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="district">District</label>
+<input class="form-input block w-full rounded-lg border-primary/30 bg-background-light px-4 py-3 text-black placeholder-black/40 focus:border-primary focus:ring-primary dark:border-primary/40 dark:bg-background-dark dark:text-white dark:placeholder-white/40 dark:focus:border-primary dark:focus:ring-primary" id="district" name="district" placeholder="e.g., New Delhi" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="state">State</label>
+<input class="form-input block w-full rounded-lg border-primary/30 bg-background-light px-4 py-3 text-black placeholder-black/40 focus:border-primary focus:ring-primary dark:border-primary/40 dark:bg-background-dark dark:text-white dark:placeholder-white/40 dark:focus:border-primary dark:focus:ring-primary" id="state" name="state" placeholder="e.g., Delhi" required="" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="contact-number">Primary Contact Number</label>
+<input class="form-input block w-full rounded-lg border-primary/30 bg-background-light px-4 py-3 text-black placeholder-black/40 focus:border-primary focus:ring-primary dark:border-primary/40 dark:bg-background-dark dark:text-white dark:placeholder-white/40 dark:focus:border-primary dark:focus:ring-primary" id="contact-number" name="contact-number" placeholder="e.g., 9876543210" required="" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="email">Email Address</label>
+<input class="form-input block w-full rounded-lg border-primary/30 bg-background-light px-4 py-3 text-black placeholder-black/40 focus:border-primary focus:ring-primary dark:border-primary/40 dark:bg-background-dark dark:text-white dark:placeholder-white/40 dark:focus:border-primary dark:focus:ring-primary" id="email" name="email" placeholder="For verification &amp; communication" required="" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="username">Username/Email</label>
+<input class="form-input block w-full rounded-lg border-primary/30 bg-background-light px-4 py-3 text-black placeholder-black/40 focus:border-primary focus:ring-primary dark:border-primary/40 dark:bg-background-dark dark:text-white dark:placeholder-white/40 dark:focus:border-primary dark:focus:ring-primary" id="username" name="username" placeholder="Choose a username" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="password">Password</label>
+<input class="form-input block w-full rounded-lg border-primary/30 bg-background-light px-4 py-3 text-black placeholder-black/40 focus:border-primary focus:ring-primary dark:border-primary/40 dark:bg-background-dark dark:text-white dark:placeholder-white/40 dark:focus:border-primary dark:focus:ring-primary" id="password" name="password" placeholder="Create a strong password" required="" type="password"/>
+</div>
+<div class="col-span-full space-y-2">
+<label class="block text-sm font-medium text-black dark:text-white" for="id-proof">Owner’s ID Proof (KYC)</label>
+<div class="mt-1 flex justify-center rounded-lg border-2 border-dashed border-primary/40 px-6 pt-5 pb-6 dark:border-primary/50">
+<div class="space-y-1 text-center">
+<svg aria-hidden="true" class="mx-auto h-12 w-12 text-black/30 dark:text-white/30" fill="none" stroke="currentColor" viewBox="0 0 48 48">
+<path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<div class="flex text-sm text-black/60 dark:text-white/60">
+<label class="relative cursor-pointer rounded-md bg-transparent font-medium text-primary hover:text-primary/80 focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 dark:focus-within:ring-offset-background-dark" for="file-upload">
+<span>Upload a file</span>
+<input class="sr-only" id="file-upload" name="file-upload" type="file"/>
+</label>
+<p class="pl-1">or drag and drop</p>
+</div>
+<p class="text-xs text-black/50 dark:text-white/50">Aadhaar / Voter ID / Passport (PDF, PNG, JPG up to 10MB)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<button class="group relative flex w-full justify-center rounded-lg border border-transparent bg-primary px-4 py-3 text-sm font-bold text-black/80 hover:bg-primary/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark" type="submit">
+                             Submit
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+document.querySelector("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = {
+    pharmacyName: document.getElementById("pharmacy-name").value,
+    ownerName: document.getElementById("owner-name").value,
+    drugLicense: document.getElementById("drug-license").value,
+    taxId: document.getElementById("tax-id").value,
+    address: document.getElementById("address").value,
+    pincode: document.getElementById("pincode").value,
+    district: document.getElementById("district").value,
+    state: document.getElementById("state").value,
+    contactNumber: document.getElementById("contact-number").value,
+    email: document.getElementById("email").value,
+    username: document.getElementById("username").value,
+    password: document.getElementById("password").value,
+  };
+  
+
+  try {
+    const res = await fetch("http://localhost:4000/api/pharmacysignup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json();
+    if (res.ok) {
+      alert("Pharmacy registered successfully!");
+      console.log(result);
+    } else {
+      alert("Error: " + result.message);
+    }
+  } catch (err) {
+    alert("Network error: " + err.message);
+  }
+});
+</script>
+
+</body></html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pharmacy Signup</title>
+  <style>
+    /* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+body { background: #f6f8f7; color: #222; }
+
+/* Header */
+.header { border-bottom: 1px solid rgba(56, 224, 123, 0.3); background: white; }
+.container { max-width: 1000px; margin: auto; padding: 1rem; }
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+.branding { display: flex; align-items: center; gap: 10px; }
+.logo { width: 32px; height: 32px; background: #38e07b; border-radius: 50%; }
+
+/* Nav */
+.nav a { margin: 0 10px; text-decoration: none; color: #666; font-size: 14px; }
+.nav a:hover { color: #000; }
+
+/* Buttons */
+.btn-primary { background: #38e07b; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+.btn-primary:hover { background: #2dc467; }
+
+/* Main */
+.main { padding: 2rem 1rem; }
+.form-wrapper { background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+
+/* Titles */
+.form-wrapper h1 { font-size: 24px; margin-bottom: 10px; }
+.subtitle { color: #666; margin-bottom: 20px; }
+
+/* Steps */
+.steps { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 10px; }
+.steps p { color: #999; }
+.steps .active { color: #38e07b; font-weight: bold; }
+.progress-bar { height: 6px; background: #cdeed7; border-radius: 3px; margin-bottom: 20px; }
+.progress-bar div { height: 100%; background: #38e07b; border-radius: 3px; }
+
+/* Form */
+.form { display: grid; gap: 15px; }
+label { font-size: 14px; font-weight: 600; display: flex; flex-direction: column; gap: 5px; }
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="file"] {
+  padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;
+}
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container flex-between">
+      <div class="branding">
+        <div class="logo"></div>
+        <h2>GramCare</h2>
+      </div>
+      <nav class="nav">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </nav>
+      <button class="btn-primary">Login</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class="form-wrapper">
+        <h1>Register Your Pharmacy</h1>
+        <p class="subtitle">Complete the details below to get started.</p>
+
+        <!-- Progress
+        <div class="steps">
+          <p class="active">Step 1: Business Details</p>
+          <p>Step 2: Contact Info</p>
+          <p>Step 3: Login Credentials</p>
+          <p>Step 4: KYC</p>
+        </div>
+        <div class="progress-bar"><div style="width:25%"></div></div> -->
+
+        <!-- Form -->
+        <form id="pharmacySignupForm" class="form">
+          <label>Pharmacy/Store Name
+            <input type="text" id="pharmacy-name" required placeholder="e.g., GramCare Pharmacy"/>
+          </label>
+          <label>Owner/Proprietor Name
+            <input type="text" id="owner-name" required placeholder="e.g., John Doe"/>
+          </label>
+          <label>Drug License Number
+            <input type="text" id="drug-license" required placeholder="Issued by State Drug Controller"/>
+          </label>
+          <label>GST Number or PAN
+            <input type="text" id="tax-id" required placeholder="For taxation & billing compliance"/>
+          </label>
+          <label>Pharmacy Address
+            <input type="text" id="address" required placeholder="Street Address, Village/Town"/>
+          </label>
+
+          <div class="grid-3">
+            <label>PIN Code
+              <input type="text" id="pincode" required placeholder="e.g., 110001"/>
+            </label>
+            <label>District
+              <input type="text" id="district" required placeholder="e.g., New Delhi"/>
+            </label>
+            <label>State
+              <input type="text" id="state" required placeholder="e.g., Delhi"/>
+            </label>
+          </div>
+
+          <label>Primary Contact Number
+            <input type="tel" id="contact-number" required placeholder="e.g., 9876543210"/>
+          </label>
+          <label>Email Address
+            <input type="email" id="email" required placeholder="For verification & communication"/>
+          </label>
+          <label>Username/Email
+            <input type="text" id="username" required placeholder="Choose a username"/>
+          </label>
+          <label>Password
+            <input type="password" id="password" required placeholder="Create a strong password"/>
+          </label>
+
+          <!-- <label>Owner’s ID Proof (KYC)
+            <input type="file" id="file-upload"/>
+          </label> -->
+
+          <button type="submit" class="btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.querySelector("form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = {
+        pharmacyName: document.getElementById("pharmacy-name").value,
+        ownerName: document.getElementById("owner-name").value,
+        // drugLicense: document.getElementById("drug-license").value,
+        // taxId: document.getElementById("tax-id").value,
+        // address: document.getElementById("address").value,
+        // pincode: document.getElementById("pincode").value,
+        // district: document.getElementById("district").value,
+        // state: document.getElementById("state").value,
+        contactNumber: document.getElementById("contact-number").value,
+        email: document.getElementById("email").value,
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value,
+      };
+
+      try {
+        const response = await fetch("http://localhost:4000/api/pharmacysignup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          alert("Pharmacy registered successfully!");
+          console.log(result);
+        } else {
+          alert("Error: " + result.message);
+        }
+      } catch (err) {
+        alert("Network error: " + err.message);
+      }
+      
+
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GramCare - Orders</title>
+  <style>
+    /* Basic reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  background-color: #f6f8f7;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 15px 20px;
+  background-color: white;
+}
+
+header h1{
+  font-size: 1.5rem;
+}
+
+header .logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .logo {
+  width: 40px;
+  height: 40px;
+  color: #1dc962;
+}
+
+header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+}
+
+header nav a.active {
+  color: #1dc962;
+  font-weight: 600;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 35px;
+  height: 35px;
+  background: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGPUejBAMBsc48Z1y36KqWYnBoQkbus9sQEh1UPeFvsN9j5TqvejwliI8EsQ_HA_atuJ7-wgjK1xy0WOVbePVkFgNeDQspz_xHRKKy8C7rGK0dILFr2DT5ZH-95pkuwjGSkcubvaPRRd2L5L9jzsJ8cdJrtRcdKAXJuwWBpF5KYGzbYxBGD94nyxmCTYvXyyURa12vUQ4yHSq3YQ6s4U2zBirv6EuXKxFjob-qUqFloiZAsiDgpimTWAr_hiaJqPStM9FtQgMSPjP4') no-repeat center center / cover;
+  border-radius: 50%;
+}
+
+main {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.orders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.orders-header h2 {
+  font-size: 28px;
+}
+
+.new-order-btn {
+  background-color: #1dc962;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.new-order-btn:hover {
+  background-color: #17a652;
+}
+
+.orders-tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.orders-tabs .tab {
+  padding: 8px 12px;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.orders-tabs .tab.active {
+  border-bottom: 2px solid #1dc962;
+  font-weight: bold;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.orders-list .date-section {
+  margin-bottom: 30px;
+}
+
+.orders-list .date-section h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.order-card {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.order-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.order-info .status {
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status.pending { background: #fff4e5; color: #b45f00; }
+.status.in-progress{ background: #e0f0ff; color: #0366d6; }
+.status.completed { background: #e6f4ea; color: #228b22; }
+
+.order-card p.prescription {
+  margin-bottom: 10px;
+}
+
+.view-btn {
+  background: #1dc962;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background: #17a652;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-section">
+      
+      <h1>GramCare</h1>
+    </div>
+    <nav>
+      <a href="homepage.html">Dashboard</a>
+      
+      <a href="#" class="active">Orders</a>
+      <a href="pharm_inventory.html">Inventory</a>
+      <!-- <a href="#">Reports</a>
+      <a href="#">Patients</a> -->
+    </nav>
+    <div class="user-section">
+      <button class="notification-btn">🔔</button>
+      <div class="user-avatar"></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="orders-header">
+      <h2>Orders</h2>
+      <button class="new-order-btn">+ New Order</button>
+    </div>
+
+    <div class="orders-tabs">
+      <button class="tab active" data-status="all">All Orders</button>
+      <button class="tab" data-status="pending">Pending</button>
+      <button class="tab" data-status="completed">Completed</button>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search orders by patient name or ID" id="searchInput">
+    </div>
+
+    <div id="ordersList" class="orders-list">
+      <!-- Orders will be dynamically added here -->
+    </div>
+  </main>
+
+  <script>
+    const ordersList = document.getElementById('ordersList');
+
+    // Sample dynamic orders array (replace with real-time data via backend)
+    let orders = [
+      { id: 12345, patient: 'Sarah Miller', prescription: 'Amoxicillin 500mg', status: 'Pending', date: 'Today' },
+      { id: 12346, patient: 'David Lee', prescription: 'Lisinopril 20mg', status: 'In Progress', date: 'Today' },
+      { id: 12347, patient: 'Emily Chen', prescription: 'Metformin 1000mg', status: 'Completed', date: 'Yesterday' },
+      { id: 12348, patient: 'Robert Green', prescription: 'Atorvastatin 40mg', status: 'Completed', date: 'Yesterday' },
+    ];
+
+    function renderOrders() {
+      ordersList.innerHTML = '';
+      let grouped = {};
+      orders.forEach(order => {
+        if (!grouped[order.date]) grouped[order.date] = [];
+        grouped[order.date].push(order);
+      });
+
+      for (let date in grouped) {
+        const dateSection = document.createElement('div');
+        dateSection.classList.add('date-section');
+        dateSection.innerHTML = `<h3>${date}</h3>`;
+        
+        grouped[date].forEach(order => {
+          const orderDiv = document.createElement('div');
+          orderDiv.classList.add('order-card');
+          orderDiv.innerHTML = `
+            <div class="order-info">
+              <div>
+                <p class="order-id">Order #${order.id}</p>
+                <p class="patient-name">${order.patient}</p>
+              </div>
+              <span class="status ${order.status.toLowerCase().replace(' ', '-')}">${order.status}</span>
+            </div>
+            <p class="prescription">Prescription: ${order.prescription}</p>
+            <button class="view-btn">View Details →</button>
+          `;
+          dateSection.appendChild(orderDiv);
+        });
+
+        ordersList.appendChild(dateSection);
+      }
+    }
+
+    renderOrders();
+
+    // For real-time updates, use WebSocket or polling to push new orders to `orders` array and call renderOrders()
+  </script>
+</body>
+</html>

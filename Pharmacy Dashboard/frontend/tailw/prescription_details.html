@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GramCare Prescription Management</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1dc962",
+            "background-light": "#f6f8f7",
+            "background-dark": "#112117",
+            "foreground-light": "#112117",
+            "foreground-dark": "#f6f8f7",
+            "card-light": "#ffffff",
+            "card-dark": "#1a2e22",
+            "border-light": "#e3e8e5",
+            "border-dark": "#2c4033",
+            "muted-light": "#6b7f73",
+            "muted-dark": "#9aabb3"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark">
+<div class="flex flex-col min-h-screen">
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-4">
+<div class="text-primary">
+<svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold text-foreground-light dark:text-foreground-dark">GramCare</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary transition-colors" href="#">Patients</a>
+<a class="text-sm font-medium text-primary dark:text-primary" href="#">Prescriptions</a>
+<a class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary transition-colors" href="#">Inventory</a>
+<a class="text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary transition-colors" href="#">Reports</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 rounded-full text-muted-light dark:text-muted-dark hover:bg-primary/10">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuASvRvV6hTIAa_40RJeMy77BQwyJ_KSqz12FCn7yVHZRVWCR7QdDeG20RQuDK6Xk2gsnu3_YIzoWaXVetFKfI2Zqrdz6FRP8h1viAdaUyERX3StDsWW_CoOn9U-U4vO5n5ua1IbxPEUzHvMYqvUZ49PLBaYOd2sorUiPDEyxl35WbnZwicb3JfLqfCQF9_nQgxiGLDqswAXH-VHrMYwm5tv4wXFgbUbShAVOGZlxLzdOuhLSrPMBAA96A8hdXq7YjZP-p0sc18iV1Vp");'></div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-5xl mx-auto">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+<h2 class="text-3xl font-bold text-foreground-light dark:text-foreground-dark">Prescriptions</h2>
+<button class="flex items-center justify-center gap-2 bg-primary text-white font-medium px-6 py-3 rounded-lg shadow-sm hover:bg-primary/90 transition-colors w-full sm:w-auto">
+<span class="material-symbols-outlined">add</span>
+<span>New Prescription</span>
+</button>
+</div>
+<div class="mb-6">
+<div class="border-b border-border-light dark:border-border-dark">
+<nav class="flex gap-6 -mb-px">
+<a class="py-3 px-1 border-b-2 border-primary text-primary font-semibold text-sm" href="#">New <span class="ml-2 bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs">5</span></a>
+<a class="py-3 px-1 border-b-2 border-transparent text-muted-light dark:text-muted-dark hover:text-foreground-light dark:hover:text-foreground-dark hover:border-border-light dark:hover:border-border-dark font-medium text-sm transition-colors" href="#">Pending</a>
+<a class="py-3 px-1 border-b-2 border-transparent text-muted-light dark:text-muted-dark hover:text-foreground-light dark:hover:text-foreground-dark hover:border-border-light dark:hover:border-border-dark font-medium text-sm transition-colors" href="#">Completed</a>
+</nav>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg border border-border-light dark:border-border-dark shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-background-light dark:bg-background-dark">
+<tr>
+<th class="p-4 font-semibold text-sm text-muted-light dark:text-muted-dark w-2/5">Patient Name</th>
+<th class="p-4 font-semibold text-sm text-muted-light dark:text-muted-dark w-1/4">Date</th>
+<th class="p-4 font-semibold text-sm text-muted-light dark:text-muted-dark w-1/4">Status</th>
+<th class="p-4 font-semibold text-sm text-muted-light dark:text-muted-dark w-auto"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark">
+<tr class="hover:bg-background-light dark:hover:bg-background-dark/50 transition-colors">
+<td class="p-4 font-medium text-foreground-light dark:text-foreground-dark">Liam Harper</td>
+<td class="p-4 text-muted-light dark:text-muted-dark">2024-03-15</td>
+<td class="p-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">New</span>
+</td>
+<td class="p-4 text-right">
+<button class="p-2 rounded-full text-muted-light dark:text-muted-dark hover:bg-primary/10 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-background-light dark:hover:bg-background-dark/50 transition-colors">
+<td class="p-4 font-medium text-foreground-light dark:text-foreground-dark">Olivia Bennett</td>
+<td class="p-4 text-muted-light dark:text-muted-dark">2024-03-14</td>
+<td class="p-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">New</span>
+</td>
+<td class="p-4 text-right">
+<button class="p-2 rounded-full text-muted-light dark:text-muted-dark hover:bg-primary/10 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-background-light dark:hover:bg-background-dark/50 transition-colors">
+<td class="p-4 font-medium text-foreground-light dark:text-foreground-dark">Noah Carter</td>
+<td class="p-4 text-muted-light dark:text-muted-dark">2024-03-13</td>
+<td class="p-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">New</span>
+</td>
+<td class="p-4 text-right">
+<button class="p-2 rounded-full text-muted-light dark:text-muted-dark hover:bg-primary/10 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-background-light dark:hover:bg-background-dark/50 transition-colors">
+<td class="p-4 font-medium text-foreground-light dark:text-foreground-dark">Emma Hayes</td>
+<td class="p-4 text-muted-light dark:text-muted-dark">2024-03-12</td>
+<td class="p-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">New</span>
+</td>
+<td class="p-4 text-right">
+<button class="p-2 rounded-full text-muted-light dark:text-muted-dark hover:bg-primary/10 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-background-light dark:hover:bg-background-dark/50 transition-colors">
+<td class="p-4 font-medium text-foreground-light dark:text-foreground-dark">Ethan Foster</td>
+<td class="p-4 text-muted-light dark:text-muted-dark">2024-03-11</td>
+<td class="p-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">New</span>
+</td>
+<td class="p-4 text-right">
+<button class="p-2 rounded-full text-muted-light dark:text-muted-dark hover:bg-primary/10 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
