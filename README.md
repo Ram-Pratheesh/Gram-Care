@@ -102,19 +102,9 @@ flutter run
 ```bash
 cd pharmacy-dashboard
 npm install
-# Set REACT_APP_API_URL in .env to your backend (or ngrok https URL)
+# Set REACT_APP_API_URL in .env to your backend 
 npm start
 ```
-
-### Testing QR scanning from mobile to local backend
-
-Use ngrok to expose local backend to the internet:
-
-```bash
-ngrok http 5000
-```
-
-Use the generated https:// URL for API_BASE_URL in Flutter and React while testing on real devices.
 
 ## Security & Privacy
 
@@ -123,7 +113,4 @@ Use the generated https:// URL for API_BASE_URL in Flutter and React while testi
 - Encrypt sensitive data at rest and in transit (TLS/HTTPS).
 - Follow local regulations and privacy best practices for medical data.
 
-## Community Impact
-
-GramCare aims to make healthcare more transparent and accessible. By combining blockchain immutability with mobile and web apps, the system protects patients against prescription fraud and connects underserved populations to care — including support through Panchayat offices and health workers for those without internet access.
-
+Thank You....❤️
