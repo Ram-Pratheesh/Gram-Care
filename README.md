@@ -113,4 +113,4 @@ npm start
 - Encrypt sensitive data at rest and in transit (TLS/HTTPS).
 - Follow local regulations and privacy best practices for medical data.
 
-Thank You...❤️
+Thank You..❤️
